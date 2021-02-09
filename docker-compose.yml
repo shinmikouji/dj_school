@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  db:
+    image: mysql:8.0
+    container_name: rails_mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: password
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - ./mysql-confd:/etc/mysql/conf.d
+  web:
+    build: .
+    container_name: dj_school
+    command: rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/dj_school
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      BINDING: 0.0.0.0
+    stdin_open: true
+    tty: true
+    links:
+      - db
