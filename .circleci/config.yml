@@ -1,59 +1,62 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/dj_school
     docker:
       - image: circleci/ruby:3.0.0-node-browsers
         environment:
-          BUNDLE_RETRY: 3
-          BUNDLE_PATH: vendor/bundle
-          BUNDLER_VERSION: 2.2.3  
-          RAILS_ENV: test
+          - BUNDLER_VERSION: 2.2.3
+          - RAILS_ENV: 'test'
       - image: circleci/mysql:8.0
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '%'
+
+    working_directory: ~/dj_school
+
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - my-app-bundle-v1-{{ checksum "Gemfile.lock" }}
-            - my-app-bundle-v1-
-      - run:
-          name: Bundler install
-          command: |
-            gem update --system
-            gem install bundler -v 2.2.3
-      - run:
-          name: Bundle Install
-          command: bundle check || bundle install
-      - save_cache:
-          key: my-app-bundle-v1-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
-      - restore_cache:
-          keys:
-            - rails-demo-yarn-{{ checksum "yarn.lock" }}
-            - rails-demo-yarn-
-      - run:
-          name: Yarn install
-          command: yarn install --cache-folder ~/.cache/yarn
-      - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
-          
-      # Datebase setup
-      - run: mv ./config/database.yml.ci ./config/database.yml
-      
-      - run:
-          name: Databasesetup
-          command: |
-             bundle exec rake db:create
-             bundle exec rake db:schema:load
 
-      - run: bundle exec bin/webpack
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+
       - run:
-          name: execute rspec
-          command: bundle exec rspec
+          name: install dependencies
+          command: |
+            gem install bundler -v 2.2.3
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - run: mv config/database.yml.ci config/database.yml 
+
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
+
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+          
+      - run:
+          name: run tests
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
+
       - store_test_results:
           path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
