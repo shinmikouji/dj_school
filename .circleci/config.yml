@@ -39,13 +39,15 @@ jobs:
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
-      
+          
+      # Datebase setup
       - run: mv ./config/database.yml.ci ./config/database.yml
+      
       - run:
-        name: Databasesetup
-        command: |
-           bundle exec rake db:create
-           bundle exec rake db:schema:load
+          name: Databasesetup
+          command: |
+             bundle exec rake db:create
+             bundle exec rake db:schema:load
 
       - run: bundle exec bin/webpack
       - run:
