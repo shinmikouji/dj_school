@@ -10,6 +10,9 @@ jobs:
           BUNDLER_VERSION: 2.2.3  
           RAILS_ENV: test
       - image: circleci/mysql:8.0
+        environment:
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          - MYSQL_ROOT_HOST: '127.0.0.1'
     steps:
       - checkout
       - restore_cache:
