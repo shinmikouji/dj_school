@@ -1,16 +1,15 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/my-app
+    working_directory: ~/dj_school
     docker:
       - image: circleci/ruby:3.0.0-node-browsers
         environment:
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
           BUNDLER_VERSION: 2.2.3  
-          DATABASE_URL: postgres://postgres:password@localhost:5432/myapp_test
           RAILS_ENV: test
-      - image: circleci/postgres:11-alpine
+      - image: circleci/mysql:8.0
     steps:
       - checkout
       - restore_cache:
