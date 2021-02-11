@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'statics_pages#home'
+  get '/top', to: 'statics_pages#top'
+  get '/instructor', to: 'statics_pages#instructor'
+  get 'plan', to: 'statics_pages#plan'
+  get 'signup', to: 'users#new'
 end
