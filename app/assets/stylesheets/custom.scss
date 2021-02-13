@@ -1,61 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.container {
-  width: 100%;
-  padding: 0 15px;
-  margin: 0 auto;
-}
-
-.top {
-  width: 100%;
-  height: 800px;
-  background-image: url(https://cdn.learnenough.com/kitten.jpg);
-  background-size: cover;
-  color: white;
-  text-align: center;
-}
-
-.top h1 {
-  opacity: 0.9;
-  font-size: 55px;
-  letter-spacing: 5px;
-  border:solid 5px #000;
-}
-
-.btn {
-  padding: 8px 24px;
-  color: white;
-  display: inline-block;
-  opacity: 0.8;
-  border-radius: 4px;
-}
-
-.btn:hover {
-  opacity: 1;
-}
-
-.login {
-  background-color: #00a0b0;
-  margin-right: 10px;
-}
-
-.gest-login {
-  background-color: #00a0b0;
-}
-
-.btn-wrapper {
-  margin: 20px 0;
-}
-
-.btn-wrapper p {
-  margin: 10px 0;
-}
-
-.fa {
-  margin-right: 5px;
-}
-
 /* header */
 header {
   height: 60px;
@@ -99,6 +44,57 @@ header {
   color: black;
 }
 
+
+.top {
+  width: 100%;
+  height: 800px;
+  background-image: url(https://cdn.learnenough.com/kitten.jpg);
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+
+.top h1 {
+  opacity: 0.9;
+  font-size: 55px;
+  letter-spacing: 5px;
+}
+
+.top-container {
+  width: 100%;
+  padding: 250px 15px;
+  margin: 0 auto;
+}
+
+.btn {
+  padding: 8px 24px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.login {
+  background-color: #00a0b0;
+  margin-right: 10px;
+}
+
+.gest-login {
+  background-color: #00a0b0;
+}
+
+.btn-wrapper {
+  margin: 20px 0;
+}
+
+.btn-wrapper p {
+  margin: 10px 0;
+}
+
 .message-wrapper {
   border-bottom: 1px solid #eee;
   padding-top: 80px;
@@ -123,36 +119,50 @@ footer {
 
 /* signup-page */
 .signup {
-  height: auto;
-  .signup_link {
-    text-align: center;
-    h1 {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-  }
+  height: 750px;
+}
+.signup_link {
+  text-align: center;
+}  
+.signup-link h1 {
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: center;
+  margin-top: 70px;
 }
 label {
   width: 100%;
+  height: 20px;
   padding: 5px 0;
+  text-align:  center;
 }
 input {
   width: 50%;
   height: 40px;
-}
-@media (max-width: 1000px) {
-  label {
-    width: 100%;
-  }
-  input {
-    width: 100%;
-  }
+  margin-left: 133px;
+  margin-top: 5px;
 }
 .signup_btn {
   margin-top: 10px;
 }
 
+/* About */
+.about-container {
+  height: 600px;
+}
 
+.about-main {
+  text-align: center;
+  margin-top: 120px;
+}
+
+.about-item {
+  height: 300px;
+  margin-top: 170px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 3px;
+}
 
 /* form */
 #error_explanation {

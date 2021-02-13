@@ -1,30 +1,20 @@
 <% provide(:title, "Home") %>
 <%= render 'shared/header' %>
 <div class="top">
-  <div class="">
+  <div class="top-container">
     <h1>E.Y.M is Online DJ School</h1>
     <h1>- Enjoy Your Music -</h1>
     <div class="btn-wrapper">
-      <a href="#" class="btn login">
-        <span class="login"></span>
-        ログインユーザー
-      </a>
-      <a href="#" class="btn gest-login">
-      <span class="gest-login"></span>
-        ゲストログインユーザー
-      </a>
+      <%= link_to("ログインユーザー", login_path, { class: "btn login"}) %>
+      <%= link_to("ゲストログインユーザー", login_path, { class: "btn gest-login"}) %>
     </div>
   </div>
 </div>
 <div class="message-wrapper">
-  <div class="container">
-    <div class="heading">
-      <h2>ご自宅でDJデビューしませんか？</h2>
-      <h3>STAY HOMEでも音楽は楽しめる！</h3>
-      <p>配信の方法やmixの作成など<p>
-      <p>DJに必要な要素は全て教えます！</p>
-    </div>
-  </div>
+  <h2>ご自宅でDJデビューしませんか？</h2>
+  <h3>STAY HOMEでも音楽は楽しめる！</h3>
+  <p>配信の方法やmixの作成など<p>
+  <p>DJに必要な要素は全て教えます！</p>
 </div>
 <footer>
   <div class="container">
