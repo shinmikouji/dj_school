@@ -1,4 +1,10 @@
 <% provide(:title, @user.name) %>
-<div class="">
-<%= link_to "プロフィールを編集する", edit_user_path(current_user) %>
-<%= @user.name %>
+<div class="user-page">
+  <div class="user-image">
+  <%= image_tag "dj.icon.jpeg" %> 
+  </div>
+  <div class="user-name">
+    <%= @user.name %> 
+  </div>
+  <%= link_to "プロフィールを編集する", edit_user_path(current_user), class: "user-botan " %>
+</div>

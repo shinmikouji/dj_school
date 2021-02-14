@@ -5,11 +5,9 @@
 header {
   height: 60px;
   width: 100%;
-  background-color: #e7e4db;
   position: fixed;
   top: 0;
   z-index: 10;
-  opacity: 0.7;
 }
 
 /*.logo {
@@ -19,11 +17,12 @@ header {
 
 .header-left {
   float: left;
-  h2 {
-    line-height: 25px;
+  .eym {
+    line-height: 60px;
     letter-spacing: .1em;
     -webkit-text-stroke:3px #E56758;
     text-shadow: 4px 4px 0 #498EE0;
+    font-size: 32px;
   }
 }
 
@@ -35,20 +34,25 @@ header {
 .header-item {
   line-height: 60px;
   padding: 0 25px;
-  color: black;
+  color: yellow;
 }
 
-.signup {
+.signup-item {
   line-height: 60px;
   padding: 0 25px;
-  color: black;
+  color: yellow;
 }
 
+.login-item {
+  line-height: 60px;
+  padding: 0 25px;
+  color: yellow;
+}
 
 .top {
   width: 100%;
   height: 800px;
-  background-image: url(https://cdn.learnenough.com/kitten.jpg);
+  background-image: image-url("marius-serban-YCifuLe2aeQ-unsplash.jpg");
   background-size: cover;
   color: white;
   text-align: center;
@@ -66,7 +70,7 @@ header {
   margin: 0 auto;
 }
 
-.btn {
+.botan {
   padding: 8px 24px;
   color: white;
   display: inline-block;
@@ -74,7 +78,7 @@ header {
   border-radius: 4px;
 }
 
-.btn:hover {
+.botan:hover {
   opacity: 1;
 }
 
@@ -100,7 +104,7 @@ header {
   padding-top: 80px;
   padding-bottom: 80px;
   text-align: center;
-  background-color: #d7e9c3;
+  background-color: #485253;
 }
 
 footer img {
@@ -118,32 +122,27 @@ footer {
 }
 
 /* signup-page */
-.signup {
-  height: 750px;
+.signup-page {
+  height: 800px;
 }
-.signup_link {
+
+.signup-page h1 {
   text-align: center;
-}  
-.signup-link h1 {
-  font-weight: bold;
-  margin-top: 5px;
-  text-align: center;
-  margin-top: 70px;
+  margin-top: 150px;
 }
-label {
-  width: 100%;
-  height: 20px;
-  padding: 5px 0;
-  text-align:  center;
+
+.signup-botan {
+  background-color: #498EE0;
+  margin-left: 175px;
+  margin-top: 20px;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+  color: white;
 }
-input {
-  width: 50%;
-  height: 40px;
-  margin-left: 133px;
-  margin-top: 5px;
-}
-.signup_btn {
-  margin-top: 10px;
+
+.signup-botan:hover {
+  opacity: 1;
 }
 
 /* About */
@@ -180,18 +179,25 @@ input {
   }
 }
 
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
+label {
+  width: 100%;
+  height: 20px;
+  padding: 5px 0;
+  text-align:  center;
 }
 
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
+input {
+  width: 50%;
+  height: 40px;
+  margin-left: 133px;
+  margin-top: 5px;
+}
+
+.form-control {
+  width: 400px;
+  text-align: center;
+  height: 40px;
+  margin: auto;
 }
 
 /* reviews */
@@ -219,11 +225,7 @@ input {
     display: block;
     margin-left: 60px;
   }
-  .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
+
 }
 
 aside {
@@ -232,3 +234,212 @@ aside {
     margin-bottom: 5px;
   }
 }
+
+/* login-pages */
+.login-container {
+  height: 800px;
+}
+
+.login-link h1 {
+  text-align: center;
+}
+
+.login-link {
+  margin-top: 100px;
+  height: 500px;
+}
+
+
+.checkbox {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+    margin-top: 20px;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 68px;
+  margin-top: 10px;
+}
+
+.login-link p{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-botan {
+  background-color: #498EE0;
+  margin-left: 175px;
+  margin-top: 20px;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+  color: white;
+}
+
+
+.login-botan:hover{
+  opacity: 1;
+}
+
+/* edit-page */
+
+.edit-page {
+  height: 800px;
+}
+
+.edit-page h1 {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.edit-botan {
+  background-color: #498EE0;
+  margin-left: 175px;
+  margin-top: 20px;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+  color: white;
+}
+
+.edit-botan:hover {
+  opacity: 1;
+}
+
+/* top-page */
+
+.top-page {
+  height: 800px;
+}
+
+.top-nav{
+  border-bottom: 1px solid #ccc;
+  }
+  .top-nav ul{
+    margin-top: 0;
+    display: table;
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+    text-align: center;
+  }
+  .top-nav ul li{
+    display: table-cell;
+    min-width: 50px;
+    border-right: 1px solid #ccc;
+  }
+  .top-nav ul li:first-child{
+    border-left: 1px solid #ccc;
+  }
+  .top-nav ul li a{
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    text-decoration: none;
+    color: black;
+  }
+  .top-nav ul li a:hover{
+    background-color: #97ba54;
+    border-bottom: 5px solid #97ba54;
+  }
+  .top-nav ul li.current{
+    font-weight: bold;
+  }
+  .top-nav ul li.current a{
+    border-bottom: 5px solid #00B0F0;
+    color: #00B0F0;
+  }
+
+  .top-main {
+    height: 700px;
+    background-image: image-url("thuyen-ngo-vnCvIAjYBRM-unsplash.jpg");
+    background-size: cover;
+  }
+
+  /* instructor */
+  .instructors{
+    height: 800px;
+  }
+
+  .instructors-main {
+    height: 500px;
+    background-color: #d7e9c3;
+  }
+
+  .instructors-left {
+    height: 500px;
+    width: 50%;
+    float: left;
+  }
+
+  .instructors-image {
+    background-image: image-url("img.jpg");
+  }
+
+  .instructors-right {
+    float: right;
+    width: 50%;
+    letter-spacing: 2px;
+    font-family: monospace;
+  }
+
+  .instructors-name {
+    margin-top: 65px;
+    text-align: left;
+    span{
+      font-size: 20px;
+    }
+  }
+
+  .instructors-history {
+    margin-top: 15px;
+  }
+
+  .instructors-bottom {
+    height: 300px;
+    width: auto;
+    background-color: #f2d8b3;
+
+  }
+
+  /* user-page */
+  .user-page {
+    height: 700px;
+    text-align: center;
+  }
+
+  .user-image {
+    height: 370px;
+    background-color:#b3aeb5;
+    text-align: center;
+    width: 370px;
+    margin-left: 533px;
+    margin-top: 120px;
+    padding-top: 55px;
+    border-radius: 50%;
+  }
+
+  .user-name {
+    font-size: 50px;
+    margin-top: 20px;
+
+  }
+
+  .user-botan {
+    background-color: #498EE0;
+    margin-top: 20px;
+    padding: 8px 24px;
+    display: inline-block;
+    opacity: 0.8;
+    border-radius: 4px;
+    color: white;
+  }
+
+  .user-botan:hover {
+    opacity: 1;
+  }

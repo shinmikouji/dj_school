@@ -1,30 +1,26 @@
 <% provide(:title, "SignUp") %>
 <%= render 'shared/header' %>
-<div class="signup">
-  <div class="signup-link">
-    <h1>新規登録</h1>
-    <div class="container">
-      <div class="row-sm-12">
-      <div class="col-md-6 col-md-offset-3">
-          <%= form_with(model: @user, local: true) do |f| %>
-            <%= render 'shared/error_messages', object: f.object %>
+<div class="signup-page">
+<h1>新規登録</h1>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_with(model: @user, local: true) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
 
-            <%= f.label :name, "フルネーム" %>
-            <%= f.text_field :name %>
+        <%= f.label :name, "フルネーム" %>
+        <%= f.text_field :name, class: 'form-control' %>
 
-            <%= f.label :email, "メールアドレス" %>
-            <%= f.email_field :email %>
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, class: 'form-control' %>
 
-            <%= f.label :password, "パスワード(6文字以上)" %>
-            <%= f.password_field :password %>
+        <%= f.label :password, "パスワード(6文字以上)" %>
+        <%= f.password_field :password, class: 'form-control' %>
 
-            <%= f.label :password_confirmation, "パスワード(確認用)" %>
-            <%= f.password_field :password_confirmation %>
+        <%= f.label :password_confirmation, "パスワード(確認用)" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-            <%= f.submit "アカウントを作成する", class: "btn btn-primary signup_btn" %>
-          <% end %>
-        </div>
-      </div>  
+        <%= f.submit "アカウントを作成する", class: "signup-botan" %>
+      <% end %>
     </div>
-  </div>
+  </div>  
 </div>

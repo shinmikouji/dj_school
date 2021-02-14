@@ -5,8 +5,8 @@
     <h1>E.Y.M is Online DJ School</h1>
     <h1>- Enjoy Your Music -</h1>
     <div class="btn-wrapper">
-      <%= link_to("ログインユーザー", login_path, { class: "btn login"}) %>
-      <%= link_to("ゲストログインユーザー", login_path, { class: "btn gest-login"}) %>
+      <%= link_to "ゲストログイン", guest_login_path, method: :post, class: "botan login" %>
+      <%= link_to("ゲストログインユーザー", login_path, { class: "botan gest-login"}) %>
     </div>
   </div>
 </div>
@@ -16,8 +16,4 @@
   <p>配信の方法やmixの作成など<p>
   <p>DJに必要な要素は全て教えます！</p>
 </div>
-<footer>
-  <div class="container">
-    <p>copyright E.Y.M AllRights Record</p>
-  </div>
-</footer>
+<%= render 'shared/footer' %>

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
-  has_many :reviews, dependent: destroy
+  
   validates :name,  presence: true, length: { maximum: 30 }
   VALID_EMAIL_REBEX= /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 200 },

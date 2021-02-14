@@ -1,3 +1,15 @@
 <% provide(:title, "Top") %>
-<h1>StaticsPages#top</h1>
-<p>Find me in app/views/statics_pages/top.html.erb</p>
+<div class="top-page">
+  <div class="top-nav">
+    <ul>
+    <li class=”current”>
+    <%= link_to("Lesson", signup_path) %></li>
+    <li><%= link_to("Plan", signup_path) %></li>
+    <li><%= link_to("Instractor", instructor_path) %></li>
+    <li><%= link_to("User's Voice", signup_path) %></li>
+    <li><%= link_to("My Page", current_user) %></li>
+    </ul>
+  </div>
+  <div class="top-main">
+  </div>
+</div>

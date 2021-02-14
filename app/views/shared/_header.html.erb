@@ -1,11 +1,12 @@
 <header>
   <div class="container">
     <div class="header-left">
-      <h2>E.Y.M</h2>
+      <%= link_to("E.Y.M", root_path, {class: "eym"}) %>
     </div>
     <div class="header-right">
       <%= link_to("About", about_path, {class: "header-item"}) %>
-      <%= link_to("新規登録",signup_path, {class: "signup"}) %>
+      <%= link_to("新規登録",signup_path, {class: "signup-item"}) %>
+      <%= link_to("ログイン", login_path, {class: "login-item"}) %>
     </div>
   </div>
 </header>
