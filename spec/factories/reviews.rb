@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :review do
-    content { "MyText" }
-    user { nil }
+    content { "MyString" }
+    user
+    menu
   end
 end

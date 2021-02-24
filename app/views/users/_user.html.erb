@@ -1,0 +1,11 @@
+<li>
+  <div class="users-image">
+  <%= image_tag "dj.icon.jpg" %>
+  </div>
+  <div class="users-content">
+  <%= link_to user.name, user, class: "users-name" %>
+  <% if current_user.admin? %>
+    | <%= link_to "削除する", user, method: :delete, data: { confirm: "本当に削除しますか?" }, class: "delete" %>
+  <% end %>
+  </div>
+</li>

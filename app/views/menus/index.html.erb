@@ -1,0 +1,9 @@
+<%= provide(:title, "メニュー一覧") %>
+<%= render "layouts/login_header" %>
+<div class="menu-index">
+  <h1>メニュー一覧</h1>
+  <% if current_user.admin? %>
+    <%= link_to "メニューを追加する", new_menu_path %>
+  <% end %>
+  <%= render @menus %>
+</div>

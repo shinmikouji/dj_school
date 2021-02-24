@@ -1,13 +1,17 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
-  
+  has_many :requests, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :menus
+  has_many :reviews,  dependent: :destroy
+  has_many :reservations, dependent: :destroy
   validates :name,  presence: true, length: { maximum: 30 }
   VALID_EMAIL_REBEX= /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 200 },
                       format: { with: VALID_EMAIL_REBEX },
                   uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 4 }, allow_nil: true
+  validates :password, presence: true, length: { minimum: 5 }, allow_nil: true
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

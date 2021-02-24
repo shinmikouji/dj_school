@@ -1,0 +1,11 @@
+<%= provide(:title, "口コミ一覧") %>
+<%= render "layouts/login_header" %>
+<div class="menu-review-index-page">
+  <div class="menu-review-index">
+    <div class="menu-description-box">
+      <h2 class="menu_title"><%= @menu.name %></h2>
+      <%= link_to "口コミを投稿する", menu_path(@menu.id) %>
+    </div>
+    <%= render @reviews %>
+  </div>
+</div>

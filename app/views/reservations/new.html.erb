@@ -1,0 +1,10 @@
+<% provide(:title, "予約") %>
+<%= render "layouts/login_header" %>
+<div class="reservation-new">
+  <h1 class="reservation-form">予約フォーム</h1>
+  <%= link_to "メニューを確認する", menus_path, class: "menu-confirmation" %>
+  <h4 class="reservation-caution">注意事項</h4>
+  <p class="caution-contents">(営業時間)は9:30から18:30になります</p>
+  <%= render 'form', reservation: @reservation, menus: @menus %>
+</div>
+<%= render "calendar_form", reservations: @reservations %>

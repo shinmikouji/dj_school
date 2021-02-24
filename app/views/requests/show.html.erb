@@ -1,0 +1,23 @@
+<%= provide(:title, "#{@request.user.name}の要望") %>
+<%= render "layouts/login_header" %>
+<div class="request-show">
+  <div class="request-user">
+    <h1>投稿者</h1>
+    <h2><%= link_to @request.user.name, current_user %></h2>
+    <p class="show-content"><%= @request.content %></p>
+    <% if current_user.id == @request.user.id %>
+      <%= link_to "投稿を削除する", @request, method: :delete, data: { confirm: "本当に削除しますか？"} %>
+    <% end %>
+    <%= link_to "投稿一覧へ", requests_path %>
+  </div>
+  <div class="request-comment">
+    <div class="row-sm-12">
+      <div class="col-sm-12">
+        <%= render 'comments/comment_form', request: @request, comment: @comment %>
+      </div>
+      <div class="comment-area">
+        <%= render @comments, request: @request, comment: @comment %>
+      </div>
+    </div>
+  </div> 
+</div> 

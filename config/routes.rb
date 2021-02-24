@@ -10,6 +10,13 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   post 'guest_login', to: 'guest_login#guest'
+  post 'admin_login', to: 'guest_login#admin_guest'
   resources :users
-  resources :reviews, only:[:index, :create, :destroy]
+  resources :reservations, only: [:index, :new, :create, :destroy]
+  resources :menus, only: [:index, :new, :show, :create, :destroy] do
+    resources :reviews, only: [:index, :create, :destroy]
+  end
+  resources :requests, only: [:index, :new, :show, :create, :destroy] do
+    resources :comments, only: [:create, :destroy]
+  end
 end

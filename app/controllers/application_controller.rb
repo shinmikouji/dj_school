@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::Base
+  class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def logged_in_user
@@ -7,5 +7,9 @@ class ApplicationController < ActionController::Base
       flash[:danger] = "ログインしてください"
       redirect_to login_url
     end
+  end
+
+  def admin_user
+    redirect_to top_path unless current_user.admin?
   end
 end

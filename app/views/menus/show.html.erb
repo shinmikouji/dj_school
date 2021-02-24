@@ -1,0 +1,11 @@
+<%= provide(:title, "メニュー詳細") %>
+<%= render "layouts/login_header" %>
+<div class="menu-page">
+  <div class="menu-show">
+    <div class="backimage">
+      <h1>口コミ</h1>
+      <p><%= @menu.name %></p>
+      <%= render "reviews/review_form", review: @review, menu: @menu %>
+    </div>
+  </div>
+</div>

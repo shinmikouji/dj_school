@@ -1,0 +1,13 @@
+<li>
+  <div class="requests">
+    <div class="request_image">
+      <%= image_tag "dj.icon.jpg" %>
+    </div>
+    <div class="requests_heading">
+      <span class="requests_user"><%= request.user.name %></p>
+      <span class="requests_content"><%= request.content %></P>
+      <span class="requests_time"><%= time_ago_in_words(request.created_at) %> 前</span>
+      <span class="requests_time"><%= link_to "コメント詳細へ", request %></span>
+    </div>
+  </div>
+</li>

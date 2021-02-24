@@ -1,18 +1,14 @@
 <% provide(:title, 'ユーザー一覧') %>
+<%= render "layouts/login_header" %>
 <div class="container">
   <%= will_paginate %>
 
-  <div class="user_index">
+  <div class="user-index">
+  <h1>Users</h1>
     <ul class="users">
-    <% @users.each do |user| %>
-      <%= render user %>
-      <% if current_user.admin? && !current_user?(user) %>
-        <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
-      <% end %>
-    <% end %>
+      <%= render @users %>
     </ul>
   </div>
-  <div class="cd"></div>
 
   <%= will_paginate %>
 </div>

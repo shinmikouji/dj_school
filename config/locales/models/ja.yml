@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: フルネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認用)
+      request:
+        content: 要望
+        user_id: ユーザー
+      comment:
+        comment_content: コメント
+        user_id: ユーザー
+        request_id: 要望

@@ -1,0 +1,31 @@
+<% provide(:title, "予約一覧") %>
+<%= render "layouts/login_header" %>
+<div class="reservations-index">
+  <h1 class="reservations">予約一覧表</h1>
+  <%= render "calendar_form", reservations: @reservations %>
+  <%= link_to '予約したい方はこちら', new_reservation_path, class: "reservation-link" %>
+  <div class="reservation-user">
+    <% if current_user.admin? %>
+      <%= will_paginate %>
+      <table>
+        <thead>
+          <tr>
+            <th>予約名</th>
+            <th>開始時間</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reservations_index.each do |reservation| %>
+            <tr>
+              <td><%= reservation.menu.name %></td>
+              <td><%= reservation.start_time %></td>
+              <td><%= link_to '削除', reservation, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= will_paginate %>
+    <% end %>
+  </div>
+</div>

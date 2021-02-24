@@ -1,0 +1,26 @@
+<div class="menu-list">
+  <div class="menu-name">
+    <h3><%= menu.name %></h3>
+  </div>
+  <div class="menu-description">
+    <span>〜レッスン内容〜</span>
+    <p class="menu-lead"><%= menu.description %></p>
+    <p class="menu-price">48時間 ￥<%= menu.price %></p>
+  </div>
+  <div class="menu-btn-link">
+    <%= link_to "予約する", new_reservation_path, class: "btn btn-lg btn-primary menu_btn"%>
+  </div>
+  <div class="reiew-botan-menu">
+    <p class="review-link">
+      <%= link_to "口コミを書く", menu_path(menu.id), class: "review-right-btn" %>
+    </p>
+    <p class="review-link">
+      <%= link_to "口コミを見る", menu_reviews_path(menu.id) %>
+    </p>
+    <% if current_user.admin? %>
+      <P>
+        <%= link_to "メニューを削除する", menu_path(menu.id), method: :delete, class: "menu-delete", data: { confirm: "本当に削除しますか?" } %>
+      </p>
+    <% end %>
+  </div>
+</div>

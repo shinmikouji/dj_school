@@ -1,5 +1,5 @@
 <% provide(:title, "Login") %>
-<%= render 'shared/header' %>
+<%= render 'layouts/header' %>
 <div class="login-container">
   <div class="login-link">
     <h1>ログイン</h1>
@@ -7,10 +7,10 @@
       <div class="col-md-6 col-md-offset-3">
         <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
 
-          <%= f.label :email %>
+          <%= f.label :email, "メールアドレス" %>
           <%= f.email_field :email, class: 'form-control' %>
 
-          <%= f.label :password %>
+          <%= f.label :password, "パスワード" %>
           <%= f.password_field :password, class: 'form-control' %>
 
           <%= f.label :remember_me, class: "checkbox inline" do %>
@@ -18,10 +18,11 @@
             <span>ログインを保存する</span>
           <% end %>    
 
-          <%= f.submit "Log in", class: "login-botan" %>
+          <%= f.submit "ログインする", class: "login-botan" %>
         <% end %>
 
-        <p>登録していますか？ <%= link_to "Let's Sign Up!", signup_path %></p>
+        <p>登録していますか？ <%= link_to "新規登録はこちら", signup_path %></p>
+        <p><%= link_to "ゲストでログインの方はこちら", guest_login_path, method: :post %></p>
       </div>
     </div>
   </div>

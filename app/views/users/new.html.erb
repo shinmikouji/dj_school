@@ -1,7 +1,7 @@
-<% provide(:title, "SignUp") %>
-<%= render 'shared/header' %>
+<% provide(:title, "新規登録") %>
+<%= render 'layouts/header' %>
 <div class="signup-page">
-<h1>新規登録</h1>
+  <h1>新規登録</h1>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= form_with(model: @user, local: true) do |f| %>
@@ -21,6 +21,7 @@
 
         <%= f.submit "アカウントを作成する", class: "signup-botan" %>
       <% end %>
+      <%= link_to "ゲストとしてログインする", guest_login_path, method: :post, class: "guest" %>
     </div>
   </div>  
 </div>

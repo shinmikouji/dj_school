@@ -1,0 +1,15 @@
+<% provide(:title, "要望") %>
+<%= render "layouts/login_header" %>
+<div class="request-page">
+  <h1>要望</h1>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_with(model: @request, local: true) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <%= f.text_area :content, id: "request-form-area", placeholder: "(例) 機材の貸し出しをして欲しいです" %>
+        <%= f.submit "投稿する", class: "request-botan" %>
+      <% end %>
+      <%= link_to "要望一覧はこちら", requests_path, class: "requests_index_btn" %>
+    </div>
+  </div>
+</div>

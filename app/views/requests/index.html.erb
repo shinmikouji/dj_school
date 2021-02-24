@@ -1,0 +1,10 @@
+<%= provide(:title, "要望一覧") %>
+<%= render "layouts/login_header" %>
+<div class="request-wrapper">
+  <h1>要望一覧( <%= @requests.count %> )</h1>
+  <%= link_to "要望を投稿する", new_request_path, class: "btn-request" %>
+    <ul>
+      <%= render @requests %>
+    </ul>
+  <%= will_paginate @requests %>
+</div>

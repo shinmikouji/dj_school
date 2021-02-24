@@ -1,0 +1,19 @@
+<div class="copyright">
+  <p>copyright E.Y.M AllRights Record</p>
+</div>
+<footer>
+  <ul class="flex-list">
+    <li class="flex-item">
+      <%= link_to "ホーム", top_path %>
+    </li>
+      <li class="flex-item">
+        <%= link_to "予約一覧", reservations_path %>
+      </li>
+      <li class="flex-item">
+        <%= link_to "ユーザー一覧", users_path %>
+      </li>
+    <li class="flex-item">
+      <%= link_to "ログアウト", logout_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
+    </li>
+  </ul>
+</footer>

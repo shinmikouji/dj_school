@@ -1,0 +1,11 @@
+<div class="menu-review-form">
+  <%= form_with model: review, url: menu_reviews_path(menu), local: true do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <%= f.hidden_field :menu_id, value: menu.id %>
+    <%= f.text_area :content, class: "form-control" %>
+    <%= f.submit "口コミを投稿する", class: "review-botan" %>
+    <p>
+    <%= link_to "口コミを確認する", menu_reviews_path(menu), class: "review-confirm" %>
+    </p>
+  <% end %>
+</div>

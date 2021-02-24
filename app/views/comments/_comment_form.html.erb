@@ -1,0 +1,7 @@
+<%= form_with(model: [request, comment]) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.text_area :comment_content, placeholder: "コメントを入力", id: "comment-form" %>
+  <div class="comment-botan-form">
+    <%= f.submit "投稿する", class: "comment-botan" %>
+  </div>
+<% end %> 
