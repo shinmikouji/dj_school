@@ -1,15 +1,1 @@
-<% provide(:title, "Top") %>
-<div class="top-page">
-  <div class="top-nav">
-    <ul>
-    <li class=”current”>
-    <%= link_to("Reservation", reservations_path) %></li>
-    <li><%= link_to("Plan", menus_path) %></li>
-    <li><%= link_to("Instructor", instructor_path) %></li>
-    <li><%= link_to("Users Voice", new_request_path) %></li>
-    <li><%= link_to("My Page", current_user) %></li>
-    </ul>
-  </div>
-  <div class="top-main">
-  </div>
-</div>
+<%= render "top" %>

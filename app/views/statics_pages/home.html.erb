@@ -1,4 +1,7 @@
 <% provide(:title, "Home") %>
+<% if logged_in? %>
+  <%= render "top" %>
+<% else %>
 <%= render "layouts/header" %> 
 <div class="top">
   <div class="top-container">
@@ -17,3 +20,4 @@
   <p>DJに必要な要素は全て教えます！</p>
 </div>
 <%= render 'layouts/footer' %>
+<% end %>
